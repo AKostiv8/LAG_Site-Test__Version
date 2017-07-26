@@ -1,0 +1,203 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
+
+body{
+  background-color: white;
+  font-family: 'Pangolin', cursive;
+}
+
+.brand-logo {
+  margin-left: 20px;
+}
+
+.BottomString{
+  padding-top: 10px;
+  margin-bottom: 50px;
+}
+
+p {
+  line-height: 2rem;
+}
+
+#map{
+  text-align: center;
+}
+
+.parallax-container {
+  min-height: 580px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+  width: 100%;
+}
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+#headerTextPosition{
+  margin-top: 85px;
+}
+
+.distance{
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 35px;
+  margin-bottom: 75px;
+}
+
+@media only screen and (max-width : 768px) {
+  .distance{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.media{
+  margin-right: 15px;
+}
+
+.media-txt{
+  margin-top: -10px;
+}
+
+.events{
+  font-size: 1.2rem;
+}
+.sepiia {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+.sepiia:hover {
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+  filter: none;
+  filter: none;
+}
+
+.newsPosition{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.SomeTextPosition{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+
+
+.teachersDistance{
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.languageSize{
+  font-size: 21px;
+}
+
+.video-margin{
+  margin-bottom: 50px;
+}
+
+.distance-video{
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 65px;
+  margin-bottom: 75px;
+}
+
+@media screen and (max-width: 768px) {
+  .distance-video{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+}
+
+.newsPositionVideo{
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.yearsSize{
+  font-size: 70px;
+}
+
+.size{
+  height: 250px;
+  padding-top: 25%;
+}
+
+.newspaper{
+  width: 100%;
+  height: 480px;
+  border-style: none;
+  border-radius: 2px;
+}
+
+hr{
+  background-color: #b0bec5;
+  height: 1px;
+  border-style: none;
+}
+
+.newsMargins{
+  margin-top: 40px;
+  margin-bottom: 55px;
+}
+
+.linkSize{
+  font-size: 18px;
+}
+
+.slider .indicators .indicator-item.active {
+  background-color: #ffe082 !important;
+}
+
+.moreMargins{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.iconsMargin{
+  margin: 3px;
+}
+

@@ -1,0 +1,157 @@
+<!-- Dropdowns -->
+<ul id="dropdown1" class="dropdown-content">
+  <li routerLinkActive="active">
+    <a routerLink="/photo" (click)="setTitle('LAG | PHOTO')" class="brown-text text-darken-4">Фото</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/video" (click)="setTitle('LAG | VIDEO')" class="brown-text text-darken-4">Відео</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/edition" (click)="setTitle('LAG | EDITION')" class="brown-text text-darken-4">Видання</a>
+  </li>
+</ul>
+
+<ul id="ForStudents" class="dropdown-content">
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/schedule" (click)="setTitle('LAG | TABLE')" class="brown-text text-darken-4">Розклад</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/radio_lag" (click)="setTitle('LAG | RADIO')" class="brown-text text-darken-4">Radio_LAG</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/parliament" (click)="setTitle('LAG | PARLIAMENT')" class="brown-text text-darken-4">Парламент</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/gw" (click)="[setTitle('LAG | GW'), reloadPage()]" class="brown-text text-darken-4">Світ Гімназії</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/groups" (click)="setTitle('LAG | GROUPS')" class="brown-text text-darken-4">Секції</a>
+  </li>
+</ul>
+
+<ul id="Team" class="dropdown-content">
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/head" (click)="setTitle('LAG | HEAD')" class="brown-text text-darken-4">Адміністрація</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/teachers" (click)="setTitle('LAG | TEACHERS')" class="brown-text text-darken-4">Вчителі</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/psychologist" (click)="setTitle('LAG | PSYCHOLOGIST')" class="brown-text text-darken-4">Психолог</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/library" (click)="setTitle('LAG | LIBRARY')" class="brown-text text-darken-4">Бібліотека</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/museum" (click)="setTitle('LAG | MUSEUM')" class="brown-text text-darken-4">Музей</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/canteen" (click)="setTitle('LAG | CANTEEN')"  class="brown-text text-darken-4">Їдальня</a>
+  </li>
+</ul>
+
+<ul id="Enternce" class="dropdown-content">
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/pfe" (click)="setTitle('LAG | PFE')" class="brown-text text-darken-4">Положення про вступ</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="go" (click)="setTitle('LAG | GO')" class="brown-text text-darken-4">Олімпіада Гладунської</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/courses" (click)="setTitle('LAG | COURSES')" class="brown-text text-darken-4">Курси</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/examples" (click)="setTitle('LAG | TE')" class="brown-text text-darken-4">Зразки завдань</a>
+  </li>
+</ul>
+
+<ul id="Achievements" class="dropdown-content">
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/olympiads" (click)="setTitle('LAG | OLYMPIADS')" class="brown-text text-darken-4">Олімпіади</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/contests" (click)="setTitle('LAG | CONTESTS')" class="brown-text text-darken-4">Конкурси</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/conferences" (click)="setTitle('LAG | CONFERENCES')" class="brown-text text-darken-4">Конференції</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/zno" (click)="setTitle('LAG | ZNO')" class="brown-text text-darken-4">Результати ЗНО</a>
+  </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <a routerLink="/projects" (click)="setTitle('LAG | PROJECTS')" class="brown-text text-darken-4">Проекти</a>
+  </li>
+</ul>
+
+<!--Menu-->
+
+<nav class="red darken-4" role="navigation">
+  <div class="nav-wrapper ">
+    <!--<a id="logo-container" href="#!" class="brand-logo white-text">ЛАГ</a>-->
+
+    <ul class=" hide-on-med-and-down white-text">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
+        <a routerLink="/" (click)="[setTitle('LAG | MAIN'), reloadPage()]">Головна</a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
+        <a routerLink="/news" (click)="setTitle('LAG | NEWS')">Новини</a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="dropdown-button" data-activates="ForStudents">Гімназистам<i class="material-icons right">arrow_drop_down</i></a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="dropdown-button" data-activates="Team">Механізм<i class="material-icons right">arrow_drop_down</i></a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="dropdown-button" data-activates="Enternce">Вступникам<i class="material-icons right">arrow_drop_down</i></a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="dropdown-button" data-activates="Achievements">Досягнення<i class="material-icons right">arrow_drop_down</i></a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
+        <a routerLink="/internationalPage" (click)="setTitle('LAG | INTERNATIONAL')">Карта світу</a>
+      </li>
+      <li routerLinkActive="active">
+        <a class="dropdown-button" data-activates="dropdown1">Медіа<i class="material-icons right">arrow_drop_down</i></a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
+        <a  routerLink="/graduates" (click)="setTitle('LAG | GRADUATES')">Випускники</a>
+      </li>
+    </ul>
+
+    <!--Mobile menu-->
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a routerLink="/" (click)="setTitle('LAG | MAIN')">Головна</a></li>
+      <li><a routerLink="/news" (click)="setTitle('LAG | NEWS')">Новини</a></li>
+      <li>Учням</li>
+
+      <li class="divider"></li>
+
+      <li><a href="#!">Розклад</a></li>
+      <li><a href="#!">Radio_LAG</a></li>
+      <li><a href="#!">Парламент</a></li>
+      <li><a href="#!">Світ Гімназії</a></li>
+
+      <li class="divider"></li>
+
+      <li><a href="#">Вступникам</a></li>
+      <li><a href="#">Євроклуб</a></li>
+      <li><a href="#">Досягнення</a></li>
+      <li><a href="#">Вчителі</a></li>
+      <li><a href="#">Медіа</a></li>
+
+      <li class="divider"></li>
+      <li><a href="#!">Фото</a></li>
+      <li> <a href="#!">Відео</a> </li>
+      <li><a href="#!"> Видання</a></li>
+
+      <li class="divider"></li>
+
+      <li><a href="#!">Випускники</a></li>
+    </ul>
+
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+  </div>
+</nav>

@@ -1,0 +1,28 @@
+{
+  "name": "lag-test-realise",
+  "version": "1.0.0",
+  "description": "lag-site-test",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKostiv8/LAG_Site-Test__Version.git"
+  },
+  "keywords": [
+    "lag-site-test"
+  ],
+  "author": "Anastasiia Kostiv",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.3"
+  },
+  "bugs": {
+    "url": "https://github.com/AKostiv8/LAG_Site-Test__Version/issues"
+  },
+  "homepage": "https://github.com/AKostiv8/LAG_Site-Test__Version#readme"
+}
