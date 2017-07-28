@@ -4,10 +4,14 @@
 
 const express = require('express');
 const app = express();
+const router = express.Router();
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const path = require('path');
+const admineditorarea = require('./routes/admineditorarea')(router);
+const bodyParser = require('body-parser');
 
+// Database connection
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri, (err) => {
     if(err){
@@ -17,9 +21,14 @@ mongoose.connect(config.uri, (err) => {
     }
 });
 
+// Frontend directory
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 app.use(express.static(__dirname + '/frontend/dist/'));
+app.use('/admineditorarea', admineditorarea);
 
-
+// Connection to Angular 2 (index.html)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/frontend/dist/index.html'));
 })
