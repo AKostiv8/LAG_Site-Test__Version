@@ -1,0 +1,71 @@
+<div class="section">
+  <div class="row">
+    <div class="col s12 m12 l12 add-height valign-wrapper">
+      <div class="col s12 m12 l6 offset-l3">
+        <div class="card-panel">
+          <h4 class="header2">Register Page</h4>
+          <div class="row">
+
+            <div class="">
+              <div [ngClass]="messageClass">
+                {{message}}
+              </div>
+            </div>
+
+            <form [formGroup]="form" (submit)="onRegisterSubmit()">
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="username" [ngClass]="{'invalid':(form.controls.username.errors && form.controls.username.dirty) || (!usernameValid && form.controls.username.dirty), 'valid': !form.controls.username.errors && usernameValid}">Username</label>
+                  <input type="text" name="username" autocomplete="off" formControlName="username" class="validate" (blur)="checkUsername()">
+
+                </div>
+                <div class="input-field col s12">
+                  <label for="email" [ngClass]="{'invalid':(form.controls.email.errors && form.controls.email.dirty) || (!emailValid && form.controls.email.dirty), 'valid': !form.controls.email.errors && emailValid}">E-Mail</label>
+                  <input  type="email" name="email" autocomplete="off" formControlName="email" class="validate" (blur)="checkEmail()">
+                </div>
+                <div class="input-field col s12">
+                  <label for="password" [ngClass]="{'invalid':(form.controls.password.errors && form.controls.password.dirty), 'valid': !form.controls.password.errors}">Password</label>
+                  <input type="password" name="password" autocomplete="off"  formControlName="password" class="validate">
+
+                </div>
+
+                <div class="input-field col s12">
+
+                  <label for="confirm" [ngClass]="{'invalid':(form.controls.confirm.errors && form.controls.confirm.dirty), 'valid': !form.controls.confirm.errors}">Confirm password</label>
+                  <input type="password" name="confirm" autocomplete="off"  formControlName="confirm" class="validate">
+
+                </div>
+
+
+                <div class="messages">
+
+                <ul class="error-messages-types">
+                  <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">*Username field is required</li>
+                  <li *ngIf="form.controls.username.errors?.minlength || form.controls.username.errors?.manlength">*Username field should contain minimum <i>3</i> characters, maximum <i>35</i></li>
+                  <li *ngIf="form.controls.username.errors?.validateUsername && form.controls.username.dirty">*Username should have the such format: <i>surname_admin</i></li>
+                  <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">*Email field is required</li>
+                  <li *ngIf="(form.controls.email.errors?.minlength || form.controls.email.errors?.manlength) && form.controls.email.dirty">*Email field should contain minimum <i>5</i> characters, maximum <i>30</i></li>
+                  <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">*Your email should be valid</li>
+                  <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">*Password field is required</li>
+                  <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">*Something</li>
+                  <li *ngIf="form.controls.password.errors?.minlength || form.controls.password.errors?.manlength">*Password field should contain at least <i>8</i> characters but no more than <i>35</i></li>
+                  <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">*Confirmation is mandatory</li>
+                  <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">*Passwords are not the same</li>
+                  <li *ngIf="usernameMessage" class="accessing">{{usernameMessage}}</li>
+                  <li *ngIf="emailMessage" class="accessing">{{emailMessage}}</li>
+                </ul>
+
+                </div>
+
+                <div class="input-field col s12">
+                  <button [disabled]="!form.valid || processing " class="btn waves-effect waves-light right" id="Enter" type="submit">Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

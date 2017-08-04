@@ -31,15 +31,20 @@ import { ContestsComponent } from './components/contests/contests.component';
 import { ConferencesComponent } from './components/conferences/conferences.component';
 import { ZnoComponent } from './components/zno/zno.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { AdminRouteComponent } from './components/admin-route/admin-route.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 
 
 
 const appRoutes: Routes = [
   {
-    path: 'adminEditorArea',
-    component: AdminRouteComponent
+    path: 'authentication',
+    component: AuthenticationComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '',

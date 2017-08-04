@@ -1,6 +1,8 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { MaterializeModule } from 'angular2-materialize';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -33,7 +35,9 @@ import { ConferencesComponent } from './components/conferences/conferences.compo
 import { ZnoComponent } from './components/zno/zno.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { SliderComponent } from './components/main/slider/slider.component';
-import { AdminRouteComponent } from './components/admin-route/admin-route.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthService} from './services/auth.service';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 
 @NgModule({
@@ -69,12 +73,13 @@ import { AdminRouteComponent } from './components/admin-route/admin-route.compon
     ZnoComponent,
     ProjectsComponent,
     SliderComponent,
-    AdminRouteComponent
+    RegisterComponent,
+    AuthenticationComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, MaterializeModule
+    BrowserModule, AppRoutingModule, MaterializeModule, ReactiveFormsModule, HttpModule
   ],
-  providers: [ Title ],
+  providers: [ Title, AuthService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

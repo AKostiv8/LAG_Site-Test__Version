@@ -1,0 +1,55 @@
+<div class="section">
+  <div class="row">
+    <div class="col s12 m12 l12 add-height valign-wrapper">
+      <div class="col s12 m12 l6 offset-l3">
+        <div class="card-panel">
+          <h4 class="header2">Login Page</h4>
+          <div class="row">
+
+            <div class="">
+              <div [ngClass]="messageClass">
+                {{message}}
+              </div>
+            </div>
+
+            <form [formGroup]="form" (submit)="onLoginSubmit()">
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="username" [ngClass]="{'invalid':(form.controls.username.errors && form.controls.username.dirty) || (!usernameValid && form.controls.username.dirty), 'valid': !form.controls.username.errors && usernameValid}">Username</label>
+                  <input type="text" name="username" autocomplete="off" formControlName="username" class="validate" (blur)="checkUsername()">
+
+                </div>
+                <div class="input-field col s12">
+                  <label for="password" [ngClass]="{'invalid':(form.controls.password.errors && form.controls.password.dirty), 'valid': !form.controls.password.errors}">Password</label>
+                  <input type="password" name="password" autocomplete="off"  formControlName="password" class="validate">
+
+                </div>
+
+
+
+                <div class="messages">
+
+                  <ul class="error-messages-types">
+                    <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">*Username field is required</li>
+
+                    <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">*Password field is required</li>
+
+
+                    <!--<li *ngIf="usernameMessage" class="accessing">{{usernameMessage}}</li>-->
+                    <!--<li *ngIf="emailMessage" class="accessing">{{emailMessage}}</li>-->
+                  </ul>
+
+                </div>
+
+                <div class="input-field col s12">
+                  <button [disabled]="!form.valid || processing " class="btn waves-effect waves-light right" id="Enter" type="submit">Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

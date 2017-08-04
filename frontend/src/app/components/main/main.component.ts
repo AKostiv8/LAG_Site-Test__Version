@@ -12,10 +12,10 @@ export class MainComponent implements OnInit {
     private zone: NgZone
   ) {  }
 
-  reloadPage() {
+  reloadPage() { // click handler or similar
     this.zone.runOutsideAngular(() => {
       location.reload();
-  });
+    });
   }
 
 ngOnInit() { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
   fullImagePath: string;
-  constructor() {
+
+  constructor(
+    private zone: NgZone) {
     this.fullImagePath = '/assets/images/slider';
   }
 
-  ngOnInit() {
-  }
+
+
+  ngOnInit(){}
 
 }

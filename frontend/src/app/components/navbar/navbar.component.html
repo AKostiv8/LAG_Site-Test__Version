@@ -91,7 +91,7 @@
 
     <ul class=" hide-on-med-and-down white-text">
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
-        <a routerLink="/" (click)="[setTitle('LAG | MAIN'), reloadPage()]">Головна</a>
+        <a routerLink="/" (click)="[(setTitle('LAG | MAIN')), reloadPage()]">Головна</a>
       </li>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
         <a routerLink="/news" (click)="setTitle('LAG | NEWS')">Новини</a>
