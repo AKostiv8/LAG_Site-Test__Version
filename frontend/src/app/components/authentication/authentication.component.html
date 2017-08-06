@@ -16,7 +16,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <label for="username" [ngClass]="{'invalid':(form.controls.username.errors && form.controls.username.dirty) || (!usernameValid && form.controls.username.dirty), 'valid': !form.controls.username.errors && usernameValid}">Username</label>
-                  <input type="text" name="username" autocomplete="off" formControlName="username" class="validate" (blur)="checkUsername()">
+                  <input type="text" name="username" autocomplete="off" formControlName="username" class="validate" >
 
                 </div>
                 <div class="input-field col s12">
@@ -35,8 +35,6 @@
                     <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">*Password field is required</li>
 
 
-                    <!--<li *ngIf="usernameMessage" class="accessing">{{usernameMessage}}</li>-->
-                    <!--<li *ngIf="emailMessage" class="accessing">{{emailMessage}}</li>-->
                   </ul>
 
                 </div>

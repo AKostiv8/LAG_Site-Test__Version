@@ -24,8 +24,12 @@
   color: #17b72a;
 }
 
-.accessing{
+.access_true{
   color: #5acc11 !important;
+}
+
+.access_false{
+  color: #ee0002 !important;
 }
 
 .messages{
@@ -135,6 +139,7 @@
   border-bottom: 1px solid #d9b700;
   box-shadow: 0 1px 0 0 #d9b700;
 }
+
 
 #Enter{
   background-color: #9e0a09;

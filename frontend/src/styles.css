@@ -192,6 +192,13 @@ hr{
   background-color: #ffe082 !important;
 }
 
+.successLogout{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold ;
+  font-size: 19px;
+  color: #b18e15;
+}
+
 .moreMargins{
   margin-bottom: 10px;
   margin-top: 10px;

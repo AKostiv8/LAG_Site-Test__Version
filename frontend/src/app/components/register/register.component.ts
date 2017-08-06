@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
   emailMessage;
   usernameValid;
   usernameMessage;
+  warning;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -146,13 +148,15 @@ export class RegisterComponent implements OnInit {
   }
 
   checkUsername(){
-    this.authService.checkEmail(this.form.get('username').value).subscribe(data => {
+    this.authService.checkUsername(this.form.get('username').value).subscribe(data => {
       if(!data.success){
         this.usernameValid = false;
         this.usernameMessage = data.message;
+        this.warning = 'access_false';
       } else {
         this.usernameValid = true;
         this.usernameMessage = data.message;
+        this.warning = 'access_true';
       }
     });
   }

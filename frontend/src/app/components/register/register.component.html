@@ -51,14 +51,14 @@
                   <li *ngIf="form.controls.password.errors?.minlength || form.controls.password.errors?.manlength">*Password field should contain at least <i>8</i> characters but no more than <i>35</i></li>
                   <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">*Confirmation is mandatory</li>
                   <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">*Passwords are not the same</li>
-                  <li *ngIf="usernameMessage" class="accessing">{{usernameMessage}}</li>
-                  <li *ngIf="emailMessage" class="accessing">{{emailMessage}}</li>
+                  <li *ngIf="usernameMessage" [ngClass]="warning">{{usernameMessage}}</li>
+                  <li *ngIf="emailMessage" [ngClass]="warning">{{emailMessage}}</li>
                 </ul>
 
                 </div>
 
                 <div class="input-field col s12">
-                  <button [disabled]="!form.valid || processing " class="btn waves-effect waves-light right" id="Enter" type="submit">Submit
+                  <button [disabled]="!form.valid || processing || !emailValid || !usernameValid" class="btn waves-effect waves-light right" id="Enter" type="submit">Submit
                   </button>
                 </div>
               </div>

@@ -117,6 +117,9 @@
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
         <a  routerLink="/graduates" (click)="setTitle('LAG | GRADUATES')">Випускники</a>
       </li>
+      <li *ngIf="authService.loggedIn()" class="white-text">
+        <a (click)="onLogoutClick()">Logout</a>
+      </li>
     </ul>
 
     <!--Mobile menu-->

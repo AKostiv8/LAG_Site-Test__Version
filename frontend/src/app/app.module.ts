@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewsComponent } from './components/news/news.component';
@@ -77,7 +78,12 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     AuthenticationComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, MaterializeModule, ReactiveFormsModule, HttpModule
+    BrowserModule,
+    AppRoutingModule,
+    MaterializeModule,
+    ReactiveFormsModule,
+    HttpModule,
+    FlashMessagesModule
   ],
   providers: [ Title, AuthService ],
   bootstrap: [ AppComponent ]
