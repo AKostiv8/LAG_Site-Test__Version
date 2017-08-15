@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 const path = require('path');
 const admineditorarea = require('./routes/admineditorarea')(router);
+const gws = require('./routes/gws')(router);
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -32,6 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/frontend/dist/'));
 app.use('/admineditorarea', admineditorarea);
+app.use('/gws', gws)
 
 // Connection to Angular 2 (index.html)
 app.get('*', (req, res) => {

@@ -26,6 +26,49 @@
   <div class="section">
     <div class="row">
 
+      <div *ngIf="authService.loggedIn()" class="admin-area">
+        <div [ngClass]="messageClass">
+          {{message}}
+        </div>
+
+        <button type="button" name="button" *ngIf="!newPost" (click)="newBlogForm()" class="cyan darken-2 btn waves-effect waves-light">New release
+          <i class="material-icons right">create</i>
+        </button>
+        <button [disabled]="loadingBlogs" type="button" name="button" *ngIf="!newPost" (click)="reloadBlogs()" class="blue-grey lighten-1 btn waves-effect waves-light">Reload
+          <i class="material-icons right">autorenew</i>
+        </button>
+
+      </div>
+
+      <form [formGroup]="form" name="GwForm" (submit)="onGwSubmit()" *ngIf="newPost">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">title</i>
+              <input name="title" type="text" class="validate" autocomplete="off" formControlName="title" />
+              <label for="title" [ngClass]="{'valid': form.controls.title.valid, 'invalid': form.controls.title.dirty && form.controls.title.errors}">Title</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">insert_link</i>
+              <input name="body" type="text" class="validate" autocomplete="off" formControlName="body" />
+              <label for="body" [ngClass]="{'valid': form.controls.body.valid, 'invalid': form.controls.body.dirty && form.controls.body.errors}">Link</label>
+            </div>
+
+            <div class="messages">
+              <ul class="error-messages-types">
+                <li *ngIf="form.controls.title.errors?.required && form.controls.title.dirty">*Title field is required</li>
+                <li *ngIf="(form.controls.title.dirty && form.controls.title.errors?.minlength) || (form.controls.title.dirty && form.controls.title.errors?.maxlength)">*Max length: 50, Min length: 3</li>
+                <li *ngIf="form.controls.body.errors?.required && form.controls.body.dirty">*Link field is required</li>
+                <li *ngIf="(form.controls.body.dirty && form.controls.body.errors?.minlength) || (form.controls.body.dirty && form.controls.body.errors?.maxlength)">*Link may not exceed 100000 charecters</li>
+              </ul>
+            </div>
+            <div class="manage-btn right">
+              <button [disabled]="processing" type="button" name="button" (click)="goBack()" class="blue-grey lighten-1 waves-effect waves-light btn white-text ">Go Back</button>
+              <button [disabled]="processing || !form.valid" type="submit" name="button" class=" blue-grey darken-4 waves-effect waves-light btn white-text ">Submit</button>
+            </div>
+          </div>
+        </form>
+
+
       <div class="col s12">
 
         <h3 class="brown-text text-darken-3 newsPosition center-align" style="margin-top:50px; margin-bottom: 40px;">Архів випусків</h3>
@@ -33,7 +76,17 @@
         <ul class="collapsible popout" data-collapsible="accordion">
 
           <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Січень 2017</b></div>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+              <b>Січень 2017</b>
+              <div *ngIf="authService.loggedIn()" class="admin-area-inline">
+              <a href="">
+                <i class="material-icons right cyan-text text-darken-3">clear</i>
+              </a>
+              <a>
+                <i class="material-icons right cyan-text text-darken-3">edit</i>
+              </a>
+              </div>
+            </div>
             <div class="collapsible-body">
                 <span>
                    <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDYXBrZ1R0ZVpXSjA/preview" class="newspaper z-depth-1"></iframe>

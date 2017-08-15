@@ -6,7 +6,7 @@ import { tokenNotExpired } from 'angular2-jwt';
 @Injectable()
 export class AuthService {
 
-  domain = "http://localhost:8080";
+  domain = "http://localhost:8080/";
   authToken;
   user;
   options;
@@ -32,21 +32,21 @@ export class AuthService {
 
 
   registerUser(user) {
-    return this.http.post(this.domain + '/admineditorarea/register', user).map(res => res.json());
+    return this.http.post(this.domain + 'admineditorarea/register', user).map(res => res.json());
   }
 
   checkUsername(username) {
-    return this.http.get(this.domain + '/admineditorarea/checkUsername/' + username).map(res => res.json());
+    return this.http.get(this.domain + 'admineditorarea/checkUsername/' + username).map(res => res.json());
   }
 
 
   checkEmail(email) {
-    return this.http.get(this.domain + '/admineditorarea/checkEmail/' + email).map(res => res.json());
+    return this.http.get(this.domain + 'admineditorarea/checkEmail/' + email).map(res => res.json());
   }
 
 
   login(user){
-    return this.http.post(this.domain + '/admineditorarea/authentication', user).map(res => res.json());
+    return this.http.post(this.domain + 'admineditorarea/authentication', user).map(res => res.json());
   }
 
   logout(){
@@ -64,7 +64,7 @@ export class AuthService {
 
   getProfile(){
     this.createAuthenticationHeaders();
-    return this.http.get(this.domain + '/admineditorarea/', this.options).map(res => res.json());
+    return this.http.get(this.domain + 'admineditorarea/profile', this.options).map(res => res.json());
   }
 
   loggedIn(){

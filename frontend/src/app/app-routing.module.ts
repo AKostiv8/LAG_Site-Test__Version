@@ -33,6 +33,9 @@ import { ZnoComponent } from './components/zno/zno.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
 
 
 
@@ -40,11 +43,18 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 const appRoutes: Routes = [
   {
     path: 'authentication',
-    component: AuthenticationComponent
+    component: AuthenticationComponent,
+    canActivate: [NotAuthGuard]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'adminProfile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',

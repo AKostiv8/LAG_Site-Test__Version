@@ -38,7 +38,12 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { SliderComponent } from './components/main/slider/slider.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService} from './services/auth.service';
+import { GwService } from './services/gw.service';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 @NgModule({
@@ -75,7 +80,8 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     ProjectsComponent,
     SliderComponent,
     RegisterComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +91,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     HttpModule,
     FlashMessagesModule
   ],
-  providers: [ Title, AuthService ],
+  providers: [ Title, AuthService, AuthGuard, NotAuthGuard, GwService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
