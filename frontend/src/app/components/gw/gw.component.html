@@ -27,10 +27,11 @@
     <div class="row">
 
       <div *ngIf="authService.loggedIn()" class="admin-area">
-        <div [ngClass]="messageClass">
-          {{message}}
+        <div *ngIf="message && newPost">
+          <div [ngClass]="messageClass">
+            {{message}}
+          </div>
         </div>
-
         <button type="button" name="button" *ngIf="!newPost" (click)="newBlogForm()" class="cyan darken-2 btn waves-effect waves-light">New release
           <i class="material-icons right">create</i>
         </button>
@@ -69,15 +70,15 @@
         </form>
 
 
-      <div class="col s12">
+      <div class="col s12" >
 
         <h3 class="brown-text text-darken-3 newsPosition center-align" style="margin-top:50px; margin-bottom: 40px;">Архів випусків</h3>
 
         <ul class="collapsible popout" data-collapsible="accordion">
 
-          <li>
+          <li *ngFor="let gw of gwPosts" >
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>
-              <b>Січень 2017</b>
+              <b>{{ gw.title }}</b>
               <div *ngIf="authService.loggedIn()" class="admin-area-inline">
               <a href="">
                 <i class="material-icons right cyan-text text-darken-3">clear</i>
@@ -89,73 +90,11 @@
             </div>
             <div class="collapsible-body">
                 <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDYXBrZ1R0ZVpXSjA/preview" class="newspaper z-depth-1"></iframe>
+                   <iframe [src]="pdfUrl" class="newspaper z-depth-1"></iframe>
                 </span>
             </div>
           </li>
 
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Листопад 2016</b></div>
-            <div class="collapsible-body">
-                <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDelFJX2NvQktoS0E/preview" class="newspaper z-depth-1"></iframe>
-                </span>
-            </div>
-          </li>
-
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Вересень 2016</b></div>
-            <div class="collapsible-body">
-                <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDamRyazRNNHdkaEk/preview" class="newspaper z-depth-1"></iframe>
-                </span>
-            </div>
-          </li>
-
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Квітень 2016</b></div>
-            <div class="collapsible-body">
-                <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDczU2TGduSURZeVU/preview" class="newspaper z-depth-1"></iframe>
-                </span>
-            </div>
-          </li>
-
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Лютий 2016</b></div>
-            <div class="collapsible-body">
-                <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDSmlLZ3JmTTdmVDQ/preview" class="newspaper z-depth-1"></iframe>
-                </span>
-            </div>
-          </li>
-
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Січень 2016</b></div>
-            <div class="collapsible-body">
-                <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDazY1UENJX25NaWM/preview" class="newspaper z-depth-1"></iframe>
-                </span>
-            </div>
-          </li>
-
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Жовтень 2015</b></div>
-            <div class="collapsible-body">
-                <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDRDdQMGMtOVBHQ1U/preview" class="newspaper z-depth-1"></iframe>
-                </span>
-            </div>
-          </li>
-
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>Січень 2015</b></div>
-            <div class="collapsible-body">
-                <span>
-                   <iframe src="https://drive.google.com/file/d/0B1arWWIvxFZDS2ZtNlY4Si1MSW8/preview" class="newspaper z-depth-1"></iframe>
-                </span>
-            </div>
-          </li>
 
         </ul>
 

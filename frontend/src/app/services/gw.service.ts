@@ -7,6 +7,7 @@ export class GwService {
 
   options;
   domain = this.authService.domain;
+  domain1 = "http://localhost:8080/";
 
   constructor(
     private authService: AuthService,
@@ -24,9 +25,17 @@ export class GwService {
   }
 
 
+
+
   newGw(gw) {
     this.createAuthenticationHeaders();
     return this.http.post(this.domain + 'gws/newMagazine', gw, this.options).map(res => res.json());
   }
+
+  getAllGws(){
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain1 + 'gws/allGws', this.options).map(res => res.json());
+  }
+
 
 }

@@ -50,5 +50,19 @@ module.exports = (router) => {
     }
 });
 
+    router.get('/allGws', (req, res) => {
+        Gw.find({}, (err, gws) => {
+        if (err) {
+            res.json({ success: false, message: err });
+        } else {
+            if (!gws) {
+                res.json({ success: false, message: 'No magazines found.' });
+            } else {
+                res.json({ success: true, gws: gws });
+            }
+        }
+        }).sort({ '_id': -1 });
+    });
+
     return router;
 };

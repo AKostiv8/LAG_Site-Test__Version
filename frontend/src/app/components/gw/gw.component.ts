@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GwService } from '../../services/gw.service';
+import { DomSanitizer } from "@angular/platform-browser";
 
 
 @Component({
@@ -9,6 +10,9 @@ import { GwService } from '../../services/gw.service';
   templateUrl: './gw.component.html',
   styleUrls: ['./gw.component.css']
 })
+
+
+
 export class GwComponent implements OnInit {
 
   messageClass;
@@ -18,12 +22,15 @@ export class GwComponent implements OnInit {
   form;
   processing = false;
   username;
+  gwPosts;
+  pdfUrl;
 
   constructor(
     // private zone: NgZone,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private gwService: GwService
+    private gwService: GwService,
+    private domSanitizer : DomSanitizer
   ) {
     this.createNewGwForm();
   }
@@ -96,10 +103,11 @@ export class GwComponent implements OnInit {
       } else {
         this.messageClass = 'success';
         this.message = data.message;
+        this.getAllGws();
         setTimeout(() => {
           this.newPost = false;
           this.processing = false;
-          this.message = '';
+          this.message =  '';
           this.form.reset();
           this.enableFormNewGwForm();
         }, 1000);
@@ -111,10 +119,23 @@ export class GwComponent implements OnInit {
     window.location.reload();
   }
 
+  getAllGws(){
+    this.gwService.getAllGws().subscribe(data => {
+      this.gwPosts = data.gws;
+
+    });
+  }
+
   ngOnInit() {
+    this.getAllGws();
+
     this.authService.getProfile().subscribe(profile => {
       this.username = profile.user.username;
     });
+
+
+
+    this.pdfUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('');
   }
 
 }
