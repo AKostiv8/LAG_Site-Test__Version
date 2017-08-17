@@ -14,6 +14,13 @@ export class GwService {
     private http: Http
   ) { }
 
+
+  getAllGws(){
+    // this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'gws/allGws', this.options).map(res => res.json());
+  }
+
+
   createAuthenticationHeaders() {
     this.authService.loadToken();
     this.options = new RequestOptions({
@@ -30,11 +37,6 @@ export class GwService {
   newGw(gw) {
     this.createAuthenticationHeaders();
     return this.http.post(this.domain + 'gws/newMagazine', gw, this.options).map(res => res.json());
-  }
-
-  getAllGws(){
-    this.createAuthenticationHeaders();
-    return this.http.get(this.domain1 + 'gws/allGws', this.options).map(res => res.json());
   }
 
 

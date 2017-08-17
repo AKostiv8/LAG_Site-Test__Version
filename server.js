@@ -29,11 +29,12 @@ app.use(cors({
     origin: 'http://localhost:4200'
 }));
 
+app.use('/gws', gws);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/frontend/dist/'));
 app.use('/admineditorarea', admineditorarea);
-app.use('/gws', gws)
+
 
 // Connection to Angular 2 (index.html)
 app.get('*', (req, res) => {

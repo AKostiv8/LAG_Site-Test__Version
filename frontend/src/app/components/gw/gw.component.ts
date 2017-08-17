@@ -134,8 +134,7 @@ export class GwComponent implements OnInit {
     });
 
 
-
-    this.pdfUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('');
+    this.pdfUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/0B1arWWIvxFZDS2ZtNlY4Si1MSW8/preview');
   }
 
 }
