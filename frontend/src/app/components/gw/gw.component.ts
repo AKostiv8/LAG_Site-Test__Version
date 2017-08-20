@@ -24,6 +24,8 @@ export class GwComponent implements OnInit {
   username;
   gwPosts;
   pdfUrl;
+  drive;
+
 
   constructor(
     // private zone: NgZone,
@@ -121,10 +123,12 @@ export class GwComponent implements OnInit {
 
   getAllGws(){
     this.gwService.getAllGws().subscribe(data => {
-      this.gwPosts = data.gws;
-
+      this.gwPosts = data['gws'];
     });
   }
+
+
+
 
   ngOnInit() {
     this.getAllGws();
@@ -133,8 +137,19 @@ export class GwComponent implements OnInit {
       this.username = profile.user.username;
     });
 
+    // this.gwService.getAllGws().subscribe(magazine => {
+    //   this.drive = magazine.gw['body'];
+    // });
+    //
+    // console.log(this.drive);
 
-    this.pdfUrl = this.domSanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/file/d/0B1arWWIvxFZDS2ZtNlY4Si1MSW8/preview');
+
+
+    // this.drive = this.gw['body'];
+    // console.log(this.drive);
+    //   // 'https://drive.google.com/file/d/0B1arWWIvxFZDS2ZtNlY4Si1MSW8/preview';
+    //
+    // this.pdfUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.drive);
   }
 
 }

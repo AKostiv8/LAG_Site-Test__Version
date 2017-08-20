@@ -64,5 +64,73 @@ module.exports = (router) => {
         }).sort({ '_id': -1 });
     });
 
+    router.get('/singleGw/:id', (req, res) => {
+        if(!req.params.id){
+            res.json({ success: false, message: 'No magazine ID was provided'})
+        } else {
+            Gw.findOne({_id: req.params.id }, (err, gw) => {
+                if(err){
+                    res.json({ success: false, message: 'Not valid magazine ID'});
+                } else {
+                    if(!gw){
+                        res.json({ success: false, message: 'Magazine not found'});
+                    } else {
+                        res.json({ success: true, gw: gw});
+                    }
+                }
+            });
+        }
+    });
+
+    router.put('/updateGw', (req, res) => {
+        if(!req.body._id){
+            res.json({ success: false, message: 'No magazine ID provided'});
+        } else {
+            Gw.findOne({_id: req.body._id }, (err, gw) => {
+                if(err){
+                    res.json({ success: false, message: 'Not valid magazine ID'});
+                } else {
+                    if(!gw){
+                        res.json({ success: false, message: 'Magazine ID was not found'});
+                    } else {
+                        gw.title = req.body.title;
+                        gw.body = req.body.body;
+                        gw.save((err) => {
+                            if(err){
+                                res.json({success: false, message: err});
+                            } else {
+                                res.json({success: true, message: 'Post updated!'});
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+
+    router.delete('/deleteGw/:id', (req, res) => {
+        if(!req.params.id) {
+            res.json({success: false, message: 'No ID provided'});
+        } else {
+            Gw.findOne({_id: req.params.id}, (err, gw) => {
+                if(err){
+                    res.json({success:false, message: 'Invalid ID!'});
+                } else {
+                    if(!gw){
+                        res.json({success: false, message: 'Magazine was not found!'});
+                    } else {
+                        gw.remove((err) => {
+                            if(err){
+                                res.json({success: false, message: err});
+                            } else {
+                                res.json({success: true, message: 'Post deleted!'});
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
     return router;
 };

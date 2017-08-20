@@ -18,6 +18,10 @@
     });
     $('.materialboxed').materialbox();
     $('.modal').modal();
+
+    $(function() {
+      Materialize.updateTextFields();
+    });
     $(".dropdown-button").dropdown();
     $("#map").click(function(){
       $("iframe").slideToggle();

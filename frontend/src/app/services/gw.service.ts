@@ -7,18 +7,12 @@ export class GwService {
 
   options;
   domain = this.authService.domain;
-  domain1 = "http://localhost:8080/";
-
+  // gw;
+  drive;
   constructor(
     private authService: AuthService,
     private http: Http
   ) { }
-
-
-  getAllGws(){
-    // this.createAuthenticationHeaders();
-    return this.http.get(this.domain + 'gws/allGws', this.options).map(res => res.json());
-  }
 
 
   createAuthenticationHeaders() {
@@ -39,5 +33,27 @@ export class GwService {
     return this.http.post(this.domain + 'gws/newMagazine', gw, this.options).map(res => res.json());
   }
 
+
+  getAllGws(){
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'gws/allGws', this.options).map(res => res.json());
+  }
+
+
+
+  getSingleGw(id){
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'gws/singleGw/' + id, this.options).map(res => res.json());
+  }
+
+  editGw(gw){
+    this.createAuthenticationHeaders();
+    return this.http.put(this.domain + 'gws/updateGw/', gw, this.options).map(res => res.json());
+  }
+
+  deleteGw(id){
+    this.createAuthenticationHeaders();
+    return this.http.delete(this.domain + 'gws/deleteGw/' + id, this.options).map(res => res.json());
+  }
 
 }

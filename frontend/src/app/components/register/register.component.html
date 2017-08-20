@@ -47,7 +47,7 @@
                   <li *ngIf="(form.controls.email.errors?.minlength || form.controls.email.errors?.manlength) && form.controls.email.dirty">*Email field should contain minimum <i>5</i> characters, maximum <i>30</i></li>
                   <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">*Your email should be valid</li>
                   <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">*Password field is required</li>
-                  <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">*Something</li>
+                  <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">*Your password is not trustworthy</li>
                   <li *ngIf="form.controls.password.errors?.minlength || form.controls.password.errors?.manlength">*Password field should contain at least <i>8</i> characters but no more than <i>35</i></li>
                   <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">*Confirmation is mandatory</li>
                   <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">*Passwords are not the same</li>

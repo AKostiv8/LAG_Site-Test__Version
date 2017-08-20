@@ -36,6 +36,9 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
+import { EditGwComponent } from './components/gw/edit-gw/edit-gw.component';
+import { DeleteGwComponent } from './components/gw/delete-gw/delete-gw.component';
+
 
 
 
@@ -162,6 +165,16 @@ const appRoutes: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent
+  },
+  {
+    path: 'edit-gw/:id',
+    component: EditGwComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'delete-gw/:id',
+    component: DeleteGwComponent,
+    canActivate: [AuthGuard]
   }
 
   // { path: '**', component: PageNotFoundComponent }

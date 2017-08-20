@@ -1,6 +1,7 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { MaterializeModule } from 'angular2-materialize';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -43,6 +44,8 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditGwComponent } from './components/gw/edit-gw/edit-gw.component';
+import { DeleteGwComponent } from './components/gw/delete-gw/delete-gw.component';
 
 
 
@@ -81,12 +84,15 @@ import { ProfileComponent } from './components/profile/profile.component';
     SliderComponent,
     RegisterComponent,
     AuthenticationComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditGwComponent,
+    DeleteGwComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterializeModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpModule,
     FlashMessagesModule

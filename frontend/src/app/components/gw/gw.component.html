@@ -80,17 +80,17 @@
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>
               <b>{{ gw.title }}</b>
               <div *ngIf="authService.loggedIn()" class="admin-area-inline">
-              <a href="">
+              <a [routerLink]="['/delete-gw/', gw._id]">
                 <i class="material-icons right cyan-text text-darken-3">clear</i>
               </a>
-              <a>
+              <a [routerLink]="['/edit-gw/', gw._id]">
                 <i class="material-icons right cyan-text text-darken-3">edit</i>
               </a>
               </div>
             </div>
             <div class="collapsible-body">
                 <span>
-                   <iframe [src]="pdfUrl" class="newspaper z-depth-1"></iframe>
+                   <iframe [src]="" class="newspaper z-depth-1"></iframe>
                 </span>
             </div>
           </li>

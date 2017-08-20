@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+
+<h1>Edit Release</h1>
+<div class="admin-area">
+  <div *ngIf="message">
+    <div [ngClass]="messageClass">
+      {{message}}
+    </div>
+  </div>
+  <!--<button type="button" name="button" class="cyan darken-2 btn waves-effect waves-light">New release-->
+    <!--<i class="material-icons right">create</i>-->
+  <!--</button>-->
+  <!--<button type="button" name="button" class="blue-grey lighten-1 btn waves-effect waves-light">Reload-->
+    <!--<i class="material-icons right">autorenew</i>-->
+  <!--</button>-->
+
+</div>
+
+<form (submit)="updateGwSubmit()" *ngIf="!loading">
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">title</i>
+      <input [disabled]="processing" name="title" type="text" placeholder="*Magazine Title" class="validate" [(ngModel)]="gw.title" >
+      <label class="active" for="title">Title</label>
+    </div>
+    <div class="input-field col s12">
+      <i class="material-icons prefix">insert_link</i>
+      <input [disabled]="processing" name="body" type="text" placeholder="*Magazine Link" class="validate" [(ngModel)]="gw.body" >
+      <label class="active" for="link">Link</label>
+    </div>
+
+    <!--<div class="messages">-->
+      <!--<ul class="error-messages-types">-->
+        <!--<li *ngIf="form.controls.title.errors?.required && form.controls.title.dirty">*Title field is required</li>-->
+        <!--<li *ngIf="(form.controls.title.dirty && form.controls.title.errors?.minlength) || (form.controls.title.dirty && form.controls.title.errors?.maxlength)">*Max length: 50, Min length: 3</li>-->
+        <!--<li *ngIf="form.controls.body.errors?.required && form.controls.body.dirty">*Link field is required</li>-->
+        <!--<li *ngIf="(form.controls.body.dirty && form.controls.body.errors?.minlength) || (form.controls.body.dirty && form.controls.body.errors?.maxlength)">*Link may not exceed 100000 charecters</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+    <div class="manage-btn right">
+      <a [routerLink]="['delete-gw/', gw._id]">
+        <button [disabled]="processing" type="button" name="button" class="cyan darken-2 waves-effect waves-light btn white-text ">Delete</button>
+      </a>
+
+        <button [disabled]="processing" type="button" name="button" class="blue-grey lighten-1 waves-effect waves-light btn white-text" (click)="goBack()" >Go Back</button>
+        <button [disabled]="processing" type="submit" name="button" class="blue-grey darken-4 waves-effect waves-light btn white-text ">Save Changes</button>
+
+
+    </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
