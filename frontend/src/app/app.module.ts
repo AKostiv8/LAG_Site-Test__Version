@@ -40,6 +40,7 @@ import { SliderComponent } from './components/main/slider/slider.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthService} from './services/auth.service';
 import { GwService } from './services/gw.service';
+import { EventsService } from './services/events.service';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
@@ -97,7 +98,7 @@ import { DeleteGwComponent } from './components/gw/delete-gw/delete-gw.component
     HttpModule,
     FlashMessagesModule
   ],
-  providers: [ Title, AuthService, AuthGuard, NotAuthGuard, GwService ],
+  providers: [ Title, AuthService, AuthGuard, NotAuthGuard, GwService, EventsService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

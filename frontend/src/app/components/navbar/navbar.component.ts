@@ -13,9 +13,10 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private titleService: Title,
-      private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
-    private flashMessagesService: FlashMessagesService
+    private flashMessagesService: FlashMessagesService,
+    private zone: NgZone
 
   ) { }
     public setTitle( newTitle: string) {
@@ -27,6 +28,14 @@ export class NavbarComponent implements OnInit {
     this.flashMessagesService.show('You are logged out', { cssClass: 'successLogout, center-align' });
     this.router.navigate(['/']);
   }
+
+
+  reloadPage() { // click handler or similar
+    this.zone.runOutsideAngular(() => {
+      location.reload();
+    });
+  }
+
 
   ngOnInit() {
   }

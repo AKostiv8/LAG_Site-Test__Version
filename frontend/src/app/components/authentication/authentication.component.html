@@ -15,7 +15,7 @@
             <form [formGroup]="form" (submit)="onLoginSubmit()">
               <div class="row">
                 <div class="input-field col s12">
-                  <label for="username" [ngClass]="{'invalid':(form.controls.username.errors && form.controls.username.dirty) || (!usernameValid && form.controls.username.dirty), 'valid': !form.controls.username.errors && usernameValid}">Username</label>
+                  <label for="username" [ngClass]="{'invalid':(form.controls.username.errors && form.controls.username.dirty) || (form.controls.username.dirty), 'valid': !form.controls.username.errors}">Username</label>
                   <input type="text" name="username" autocomplete="off" formControlName="username" class="validate" >
 
                 </div>

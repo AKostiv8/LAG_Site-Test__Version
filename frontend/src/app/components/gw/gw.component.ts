@@ -29,7 +29,7 @@ export class GwComponent implements OnInit {
 
   constructor(
     // private zone: NgZone,
-    private authService: AuthService,
+    public authService: AuthService,
     private formBuilder: FormBuilder,
     private gwService: GwService,
     private domSanitizer : DomSanitizer
@@ -40,7 +40,7 @@ export class GwComponent implements OnInit {
 
   createNewGwForm(){
     this.form = this.formBuilder.group({
-      title: ['', Validators.compose([
+      date: ['', Validators.compose([
         Validators.required,
         Validators.maxLength(50),
         Validators.minLength(3)
