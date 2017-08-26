@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <h1>Delete Event</h1>
+      <div class="admin-area">
+        <div *ngIf="message">
+          <div [ngClass]="messageClass">
+            {{message}}
+          </div>
+        </div>
+
+
+        <div class="col s8 offset-s2" *ngIf="foundEvent">
+          <div class="card grey lighten-3">
+            <div class="card-content blue-grey-text">
+              <span class="card-title">Confirm your action</span>
+              <p>Are you sure you would like to delete this event?</p>
+            </div>
+            <div class="card-action blue-grey-text text-darken-1">
+              <button [disabled]="processing" type="button" name="button"  class="blue-grey-text text-darken-1 waves-effect waves-red btn-flat" (click)="deleteEvent()">Yes</button>
+              <a routerLink="/">
+                <button [disabled]="processing" type="button" name="button"  class="blue-grey-text text-darken-1 waves-effect waves-green btn-flat">No</button>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="card grey lighten-3">
+            <div class="card-content blue-grey-text">
+              <span class="card-title">{{ event.date }}</span>
+              <p class="truncate">{{ event.event }}</p>
+              <strong>Posted by: </strong> {{ event.createBy }}
+              <br>
+              <strong>Date: </strong> {{ event.createdAt | date:'MMM dd, yyyy'}}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -38,7 +38,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { EditGwComponent } from './components/gw/edit-gw/edit-gw.component';
 import { DeleteGwComponent } from './components/gw/delete-gw/delete-gw.component';
-
+import { EditEventComponent } from './components/main/edit-event/edit-event.component';
+import { DeleteEventComponent } from './components/main/delete-event/delete-event.component';
 
 
 
@@ -174,6 +175,16 @@ const appRoutes: Routes = [
   {
     path:'delete-gw/:id',
     component: DeleteGwComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-event/:id',
+    component: EditEventComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'delete-event/:id',
+    component: DeleteEventComponent,
     canActivate: [AuthGuard]
   }
 

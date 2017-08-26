@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
 
+h1{
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold;
+  color: #546e7a;
+}
+
 form{
   font-family: 'Ubuntu', sans-serif !important;
   font-weight: bold;
@@ -14,7 +20,6 @@ form{
   font-weight: bold;
   font-size: 17px;
   color: #006064;
-  margin-bottom: 15px;
 }
 
 .danger{
@@ -37,6 +42,8 @@ form{
 
 .manage-btn{
   display: inline;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold;
 }
 
 .error-messages-types{

@@ -45,50 +45,7 @@
 
         <h4 class="header yellow-text text-darken-4">Події</h4>
 
-        <!--Event 1-->
-        <div class="card horizontal" *ngFor="let event of eventsPosts" >
-          <div class="card-image">
-            <!--<img src="http://lorempixel.com/100/190/nature/6">-->
-          </div>
-          <div class="card-stacked">
-            <div class="card-content events">
-              <p class="light-green-text">{{ event.date }}</p>
-              <p class="light-green-text text-darken-4">{{ event.event }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!--Event 2-->
-        <!--<div class="card horizontal">-->
-          <!--<div class="card-image">-->
-            <!--&lt;!&ndash;<img src="http://lorempixel.com/100/190/nature/6">&ndash;&gt;-->
-          <!--</div>-->
-          <!--<div class="card-stacked">-->
-            <!--<div class="card-content events">-->
-              <!--<p class="light-green-text">18/09/2017</p>-->
-              <!--<p class="light-green-text text-darken-4">Мілаково</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-
-
-        <div *ngIf="authService.loggedIn()" class="admin-area">
-          <div *ngIf="message && newPost">
-            <div [ngClass]="messageClass">
-              {{message}}
-            </div>
-          </div>
-          <button type="button" name="button" *ngIf="!newPost" (click)="newEventForm()" class="cyan darken-2 btn waves-effect waves-light">New event
-            <i class="material-icons right">create</i>
-          </button>
-          <button [disabled]="loadingEvents" type="button" name="button" *ngIf="!newPost" (click)="reloadEvents()" class="blue-grey lighten-1 btn waves-effect waves-light">Reload
-            <i class="material-icons right">autorenew</i>
-          </button>
-
-        </div>
-
-
-        <form [formGroup]="form" name="GwForm" (submit)="onEventSubmit()" *ngIf="newPost">
+        <form [formGroup]="form" name="EventForm" (submit)="onEventSubmit()" *ngIf="newPost">
           <div class="row">
             <div class="input-field col s12">
               <i class="material-icons prefix">title</i>
@@ -115,6 +72,55 @@
             </div>
           </div>
         </form>
+
+        <div *ngIf="authService.loggedIn()" class="admin-area">
+          <div *ngIf="message && newPost">
+            <div [ngClass]="messageClass">
+              {{message}}
+            </div>
+          </div>
+          <button type="button" name="button" *ngIf="!newPost" (click)="newEventForm()" class="cyan darken-2 btn waves-effect waves-light space">New event
+            <i class="material-icons right">create</i>
+          </button>
+          <button [disabled]="loadingEvents" type="button" name="button" *ngIf="!newPost" (click)="reloadEvents()" class="blue-grey lighten-1 btn waves-effect waves-light space">Reload
+            <i class="material-icons right">autorenew</i>
+          </button>
+
+        </div>
+
+
+
+        <!--Event 1-->
+        <div class="card horizontal" *ngFor="let event of eventsPosts" >
+          <div class="card-image">
+            <!--<img src="http://lorempixel.com/100/190/nature/6">-->
+          </div>
+          <div class="card-stacked">
+            <div class="card-content events">
+              <p class="light-green-text">{{ event.date }}</p>
+              <p class="light-green-text text-darken-4">{{ event.event }}</p>
+            </div>
+
+            <div class="card-action center admin-area" *ngIf="authService.loggedIn()">
+              <a [routerLink]="['/edit-event/', event._id]">Update</a>
+              <a [routerLink]="['/delete-event/', event._id]" class="red-text text-darken-3">Delete</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!--Event 2-->
+        <!--<div class="card horizontal">-->
+          <!--<div class="card-image">-->
+            <!--&lt;!&ndash;<img src="http://lorempixel.com/100/190/nature/6">&ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="card-stacked">-->
+            <!--<div class="card-content events">-->
+              <!--<p class="light-green-text">18/09/2017</p>-->
+              <!--<p class="light-green-text text-darken-4">Мілаково</p>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
 
 
       </div>

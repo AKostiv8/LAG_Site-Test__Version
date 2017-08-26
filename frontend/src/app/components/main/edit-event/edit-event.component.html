@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+
+      <h1>Edit Event</h1>
+
+      <div class="admin-area">
+        <div *ngIf="message">
+          <div [ngClass]="messageClass">
+            {{message}}
+          </div>
+        </div>
+      </div>
+
+      <form (submit)="updateEventSubmit()" *ngIf="!loading">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">title</i>
+            <input [disabled]="processing" name="date" type="text" placeholder="*Event date" class="validate" autocomplete="off" [(ngModel)]="event.date" >
+            <label class="active" for="date">Date</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">insert_link</i>
+            <input [disabled]="processing" name="event" type="text" placeholder="*Event description" class="validate" autocomplete="off" [(ngModel)]="event.event" >
+            <label class="active" for="event">Event</label>
+          </div>
+
+
+          <div class="manage-btn right">
+            <a [routerLink]="['delete-event/', event._id]">
+              <button [disabled]="processing" type="button" name="button" class="cyan darken-2 waves-effect waves-light btn white-text ">Delete</button>
+            </a>
+
+            <button [disabled]="processing" type="button" name="button" class="blue-grey lighten-1 waves-effect waves-light btn white-text" (click)="goBack()" >Go Back</button>
+            <button [disabled]="processing" type="submit" name="button" class="blue-grey darken-4 waves-effect waves-light btn white-text ">Save Changes</button>
+
+
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

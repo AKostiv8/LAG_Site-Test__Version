@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
 
   createNewEventForm(){
     this.form = this.formBuilder.group({
-      title: ['', Validators.compose([
+      date: ['', Validators.compose([
         Validators.required,
         Validators.maxLength(50),
         Validators.minLength(3)

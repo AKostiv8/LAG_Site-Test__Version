@@ -47,6 +47,8 @@ import { NotAuthGuard } from './guards/notAuth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditGwComponent } from './components/gw/edit-gw/edit-gw.component';
 import { DeleteGwComponent } from './components/gw/delete-gw/delete-gw.component';
+import { EditEventComponent } from './components/main/edit-event/edit-event.component';
+import { DeleteEventComponent } from './components/main/delete-event/delete-event.component';
 
 
 
@@ -87,7 +89,9 @@ import { DeleteGwComponent } from './components/gw/delete-gw/delete-gw.component
     AuthenticationComponent,
     ProfileComponent,
     EditGwComponent,
-    DeleteGwComponent
+    DeleteGwComponent,
+    EditEventComponent,
+    DeleteEventComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,6 @@ export class EventsService {
 
   options;
   domain = this.authService.domain;
-  // gw;
   drive;
   constructor(
     private authService: AuthService,
@@ -51,9 +50,9 @@ export class EventsService {
     return this.http.put(this.domain + 'events/updateEvent/', event, this.options).map(res => res.json());
   }
 
-  // deleteEvent(id){
-  //   this.createAuthenticationHeaders();
-  //   return this.http.delete(this.domain + 'events/deleteEvent/' + id, this.options).map(res => res.json());
-  // }
+  deleteEvent(id){
+    this.createAuthenticationHeaders();
+    return this.http.delete(this.domain + 'events/deleteEvent/' + id, this.options).map(res => res.json());
+  }
 
 }

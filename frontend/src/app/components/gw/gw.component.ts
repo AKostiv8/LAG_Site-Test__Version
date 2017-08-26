@@ -40,7 +40,7 @@ export class GwComponent implements OnInit {
 
   createNewGwForm(){
     this.form = this.formBuilder.group({
-      date: ['', Validators.compose([
+      title: ['', Validators.compose([
         Validators.required,
         Validators.maxLength(50),
         Validators.minLength(3)
