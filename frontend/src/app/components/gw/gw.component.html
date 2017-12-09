@@ -76,7 +76,7 @@
 
         <ul class="collapsible popout" data-collapsible="accordion">
 
-          <li *ngFor="let gw of gwPosts" >
+          <li *ngFor="let gw of gwPosts" (click)="this.magazinePDF">
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>
               <b>{{ gw.title }}</b>
               <div *ngIf="authService.loggedIn()" class="admin-area-inline">
@@ -89,14 +89,16 @@
               </div>
             </div>
             <div class="collapsible-body">
-                <span>
-                   <iframe [src]="" class="newspaper z-depth-1"></iframe>
+                <span> {{safeLink(gw.body)}}
+                   <iframe [src]="this.magazinePDF" class="newspaper z-depth-1" alt="Please, wait"></iframe>
                 </span>
             </div>
           </li>
 
 
         </ul>
+
+
 
 
       </div>

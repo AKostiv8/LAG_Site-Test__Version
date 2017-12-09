@@ -22,7 +22,7 @@
     <a routerLink="/parliament" (click)="setTitle('LAG | PARLIAMENT')" class="brown-text text-darken-4">Парламент</a>
   </li>
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-    <a routerLink="/gw" (click)="[setTitle('LAG | GW'), reloadPage()]" class="brown-text text-darken-4">Світ Гімназії</a>
+    <a routerLink="/gw" (click)="setTitle('LAG | GW')" class="brown-text text-darken-4">Світ Гімназії</a>
   </li>
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
     <a routerLink="/groups" (click)="setTitle('LAG | GROUPS')" class="brown-text text-darken-4">Секції</a>
@@ -48,6 +48,9 @@
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
     <a routerLink="/canteen" (click)="setTitle('LAG | CANTEEN')"  class="brown-text text-darken-4">Їдальня</a>
   </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
+    <a  routerLink="/graduates" (click)="setTitle('LAG | GRADUATES')">Випускники</a>
+  </li>
 </ul>
 
 <ul id="Enternce" class="dropdown-content">
@@ -55,7 +58,7 @@
     <a routerLink="/pfe" (click)="setTitle('LAG | PFE')" class="brown-text text-darken-4">Положення про вступ</a>
   </li>
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-    <a routerLink="go" (click)="setTitle('LAG | GO')" class="brown-text text-darken-4">Олімпіада Гладунської</a>
+    <a routerLink="/go" (click)="setTitle('LAG | GO')" class="brown-text text-darken-4">Олімпіада Гладунської</a>
   </li>
   <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
     <a routerLink="/courses" (click)="setTitle('LAG | COURSES')" class="brown-text text-darken-4">Курси</a>
@@ -97,26 +100,24 @@
         <a routerLink="/news" (click)="setTitle('LAG | NEWS')">Новини</a>
       </li>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="dropdown-button" data-activates="ForStudents">Гімназистам<i class="material-icons right">arrow_drop_down</i></a>
-      </li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="dropdown-button" data-activates="Team">Механізм<i class="material-icons right">arrow_drop_down</i></a>
+        <a class="dropdown-button" data-activates="Team">Гімназія<i class="material-icons right">arrow_drop_down</i></a>
       </li>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
         <a class="dropdown-button" data-activates="Enternce">Вступникам<i class="material-icons right">arrow_drop_down</i></a>
       </li>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="dropdown-button" data-activates="Achievements">Досягнення<i class="material-icons right">arrow_drop_down</i></a>
+        <a class="dropdown-button" data-activates="ForStudents">Гімназистам<i class="material-icons right">arrow_drop_down</i></a>
       </li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
-        <a routerLink="/internationalPage" (click)="setTitle('LAG | INTERNATIONAL')">Карта світу</a>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="dropdown-button" data-activates="Achievements">Досягнення<i class="material-icons right">arrow_drop_down</i></a>
       </li>
       <li routerLinkActive="active">
         <a class="dropdown-button" data-activates="dropdown1">Медіа<i class="material-icons right">arrow_drop_down</i></a>
       </li>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="white-text">
-        <a  routerLink="/graduates" (click)="setTitle('LAG | GRADUATES')">Випускники</a>
+        <a routerLink="/internationalPage" (click)="setTitle('LAG | INTERNATIONAL')">Інтернаціональна кооперація</a>
       </li>
+
       <li *ngIf="authService.loggedIn()" class="white-text">
         <a (click)="onLogoutClick()">Logout</a>
       </li>

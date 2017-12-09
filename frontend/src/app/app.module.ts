@@ -49,7 +49,7 @@ import { EditGwComponent } from './components/gw/edit-gw/edit-gw.component';
 import { DeleteGwComponent } from './components/gw/delete-gw/delete-gw.component';
 import { EditEventComponent } from './components/main/edit-event/edit-event.component';
 import { DeleteEventComponent } from './components/main/delete-event/delete-event.component';
-
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -91,7 +91,8 @@ import { DeleteEventComponent } from './components/main/delete-event/delete-even
     EditGwComponent,
     DeleteGwComponent,
     EditEventComponent,
-    DeleteEventComponent
+    DeleteEventComponent,
+    PdfViewerComponent
   ],
   imports: [
     BrowserModule,

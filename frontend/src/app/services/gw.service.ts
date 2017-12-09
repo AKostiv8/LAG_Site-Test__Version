@@ -7,8 +7,7 @@ export class GwService {
 
   options;
   domain = this.authService.domain;
-  // gw;
-  drive;
+
   constructor(
     private authService: AuthService,
     private http: Http

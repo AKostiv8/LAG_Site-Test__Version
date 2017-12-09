@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="parallax">
-    <img  src="img/headerImg.jpg" alt="Unsplashed background img 1">
+    <img  src="../../../img/headerImg.jpg" alt="Unsplashed background img 1">
   </div>
 </div>
 
@@ -28,6 +28,76 @@
 
       <div class="col s12">
 
+
+        <!--<div *ngIf="authService.loggedIn()" class="admin-area">-->
+          <!--<div *ngIf="message && newPost">-->
+            <!--<div [ngClass]="messageClass">-->
+              <!--{{message}}-->
+            <!--</div>-->
+          <!--</div>-->
+          <button type="button" name="button" *ngIf="!newPost" (click)="newBlogForm()" class="cyan darken-2 btn waves-effect waves-light">New release
+            <i class="material-icons right">create</i>
+          </button>
+          <button [disabled]="loadingBlogs" type="button" name="button" *ngIf="!newPost" (click)="reloadBlogs()" class="blue-grey lighten-1 btn waves-effect waves-light">Reload
+            <i class="material-icons right">autorenew</i>
+          </button>
+
+        <!--</div>-->
+
+
+        <form [formGroup]="form" name="WallperForm" (submit)="onWallperSubmit()" *ngIf="newPost">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">title</i>
+              <input name="headline" type="text" class="validate" autocomplete="off" formControlName="headline" />
+              <label for="headline" [ngClass]="{'valid': form.controls.headline.valid, 'invalid': form.controls.headline.dirty && form.controls.headline.errors}">Headline</label>
+            </div>
+
+            <!--<div class="input-field col s12">-->
+              <!--<i class="material-icons prefix">insert_link</i>-->
+              <!--<input name="body" type="text" class="validate" autocomplete="off" formControlName="body" />-->
+              <!--<label for="body" [ngClass]="{'valid': form.controls.body.valid, 'invalid': form.controls.body.dirty && form.controls.body.errors}">Link</label>-->
+            <!--</div>-->
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mode_edit</i>
+              <textarea name="description" type="text" class="materialize-textarea validate" autocomplete="off" data-length="2000" formControlName="description"></textarea>
+              <label for="description" [ngClass]="{'valid': form.controls.description.valid, 'invalid': form.controls.description.dirty && form.controls.description.errors}">Description</label>
+            </div>
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">code</i>
+              <input name="title" type="text" class="validate" autocomplete="off" formControlName="position" />
+              <label for="position" [ngClass]="{'valid': form.controls.position.valid, 'invalid': form.controls.position.dirty && form.controls.position.errors}">Position</label>
+            </div>
+
+            <!--<div class="file-field input-field">-->
+              <!--<div class="btn cyan darken-2 btn waves-effect waves-light">-->
+                <!--<span>File</span>-->
+                <!--<input type="file" multiple>-->
+              <!--</div>-->
+              <!--<div class="file-path-wrapper">-->
+                <!--<input class="file-path validate" type="text" placeholder="Upload one or more files">-->
+              <!--</div>-->
+
+            <!--</div>-->
+
+            <div class="messages">
+              <ul class="error-messages-types">
+                <li *ngIf="form.controls.headline.errors?.required && form.controls.headline.dirty">*Headline field is required</li>
+                <li *ngIf="(form.controls.headline.dirty && form.controls.headline.errors?.minlength) || (form.controls.headline.dirty && form.controls.headline.errors?.maxlength)">*Max length: 75, Min length: 3</li>
+                <li *ngIf="form.controls.description.errors?.required && form.controls.description.dirty">*Description field is required</li>
+                <li *ngIf="(form.controls.description.dirty && form.controls.description.errors?.minlength) || (form.controls.description.dirty && form.controls.description.errors?.maxlength)">*Description may not exceed 2000 charecters</li>
+                <li *ngIf="form.controls.position.errors?.required && form.controls.position.dirty">*Position field is required</li>
+
+              </ul>
+            </div>
+            <div class="manage-btn right">
+              <button [disabled]="processing" type="button" name="button" (click)="goBack()" class="blue-grey lighten-1 waves-effect waves-light btn white-text ">Go Back</button>
+              <button [disabled]="processing || !form.valid" type="submit" name="button" class=" blue-grey darken-4 waves-effect waves-light btn white-text ">Submit</button>
+            </div>
+          </div>
+        </form>
 
         <!--New 1-->
         <div class="row newsMargins">

@@ -1,8 +1,10 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ElementRef} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GwService } from '../../services/gw.service';
 import { DomSanitizer } from "@angular/platform-browser";
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
+declare var jQuery: any;
 
 
 @Component({
@@ -10,7 +12,6 @@ import { DomSanitizer } from "@angular/platform-browser";
   templateUrl: './gw.component.html',
   styleUrls: ['./gw.component.css']
 })
-
 
 
 export class GwComponent implements OnInit {
@@ -23,6 +24,7 @@ export class GwComponent implements OnInit {
   processing = false;
   username;
   gwPosts;
+  magazinePDF;
   pdfUrl;
   drive;
 
@@ -32,9 +34,11 @@ export class GwComponent implements OnInit {
     public authService: AuthService,
     private formBuilder: FormBuilder,
     private gwService: GwService,
-    private domSanitizer : DomSanitizer
+    private domSanitizer : DomSanitizer,
+    private elRef: ElementRef
   ) {
     this.createNewGwForm();
+
   }
 
 
@@ -128,28 +132,25 @@ export class GwComponent implements OnInit {
   }
 
 
+  safeLink(a){
+      this.magazinePDF = this.domSanitizer.bypassSecurityTrustResourceUrl(a);
+      // console.log(a);
+      //return this.magazinePDF;
+  }
+
+
+
 
 
   ngOnInit() {
     this.getAllGws();
+    this.magazinePDF;
 
     this.authService.getProfile().subscribe(profile => {
       this.username = profile.user.username;
     });
 
-    // this.gwService.getAllGws().subscribe(magazine => {
-    //   this.drive = magazine.gw['body'];
-    // });
-    //
-    // console.log(this.drive);
-
-
-
-    // this.drive = this.gw['body'];
-    // console.log(this.drive);
-    //   // 'https://drive.google.com/file/d/0B1arWWIvxFZDS2ZtNlY4Si1MSW8/preview';
-    //
-    // this.pdfUrl = this.domSanitizer.bypassSecurityTrustResourceUrl(this.drive);
+    jQuery(this.elRef.nativeElement).find('.collapsible').collapsible();
   }
 
 }

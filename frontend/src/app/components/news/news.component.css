@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+form{
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold;
+  color: #546e7a;
+}
+
+.admin-area{
+  margin-top: 25px;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold;
+  font-size: 17px;
+  color: #006064;
+}
+
+#position_choice{
+  color: #546e7a;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+  background-color: #f7f7f0;
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+  background-color: #546e7a;
+}
+.switch label input[type=checkbox]:checked + .lever {
+  background-color: rgba(0, 0, 0, 0.38);
+}
+
+.danger{
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold;
+  font-size: 19px;
+  color: #000000;
+}
+
+.success{
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold;
+  font-size: 19px;
+  color: #37474f;
+}
+
+.messages{
+  margin-left: 18px;
+}
+
+.manage-btn{
+  display: inline;
+}
+
+.error-messages-types{
+  font-family: 'Ubuntu', sans-serif !important;
+  font-weight: bold;
+  color: #561018;
+}
+
+.admin-area-inline{
+  display: inline;
+}
+
+pdf-viewer{
+  width: 100%;
+  height: 480px;
+}
+
+/* label color */
+.input-field label {
+  color: #546e7a;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #006064;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 2px #006064;
+  box-shadow: 0 2px 0 0 #006064;
+}
+
+.input-field textarea[type=text]:focus {
+  border-bottom: 2px #006064;
+  box-shadow: 0 2px 0 0 #006064;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #546e7a;
+  box-shadow: 0 1px 0 0 #546e7a;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #212121;
+  box-shadow: 0 1px 0 0 #212121;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #00838f;
+}
+
+.input-field .prefix {
+  color: #546e7a;
+}
